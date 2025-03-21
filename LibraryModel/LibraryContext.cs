@@ -11,7 +11,7 @@ namespace LibraryModel
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("YourConnectionString");  // Укажите строку подключения к вашей базе данных
+            optionsBuilder.UseSqlServer("YourConnectionString");  
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
