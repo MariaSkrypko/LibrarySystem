@@ -34,7 +34,7 @@ namespace ConsoleApp
                 context.SaveChanges();
                 Console.WriteLine($"Book '{book.Title}' by {author.FirstName} {author.LastName} added.");
 
-                // Пример добавления читателя
+
                 var reader = new Reader
                 {
                     Login = "reader1",
