@@ -16,7 +16,7 @@ namespace LibraryModel
             public string MiddleName { get; set; }
             public DateTime BirthDate { get; set; }
 
-            // Добавляем коллекцию книг, написанных этим автором
+           
             public ICollection<Book> Books { get; set; }
         }
     
