@@ -10,7 +10,7 @@ namespace ConsoleApp
         {
             using (var context = new LibraryContext())
             {
-                // Пример создания нового автора и книги
+              
                 var author = new Author
                 {
                     FirstName = "J.K.",
@@ -50,7 +50,7 @@ namespace ConsoleApp
                 context.SaveChanges();
                 Console.WriteLine($"Reader '{reader.FirstName} {reader.LastName}' added.");
 
-                // Пример добавления записи о взятой книге
+               
                 var borrowedBook = new BorrowedBook
                 {
                     BookId = book.BookId,
@@ -63,7 +63,7 @@ namespace ConsoleApp
                 context.SaveChanges();
                 Console.WriteLine($"Book '{book.Title}' borrowed by {reader.FirstName} {reader.LastName}.");
 
-                // Пример поиска всех книг
+              
                 var books = context.Books.ToList();
                 Console.WriteLine("\nAll books:");
                 foreach (var b in books)
@@ -71,7 +71,7 @@ namespace ConsoleApp
                     Console.WriteLine($"Title: {b.Title}, Year: {b.Year}, Authors: {string.Join(", ", b.Authors.Select(a => a.FirstName + " " + a.LastName))}");
                 }
 
-                // Пример поиска книг по автору
+               
                 var authorBooks = context.Books
                     .Where(b => b.Authors.Any(a => a.FirstName == "J.K." && a.LastName == "Rowling"))
                     .ToList();
@@ -82,7 +82,7 @@ namespace ConsoleApp
                     Console.WriteLine($"Title: {b.Title}");
                 }
 
-                // Пример вывода информации о читателях
+             
                 var readers = context.Readers.ToList();
                 Console.WriteLine("\nReaders:");
                 foreach (var r in readers)
@@ -90,10 +90,10 @@ namespace ConsoleApp
                     Console.WriteLine($"Reader: {r.FirstName} {r.LastName}, Email: {r.Email}");
                 }
 
-                // Пример вывода всех взятых книг
+               
                 var borrowedBooks = context.BorrowedBooks
-                    .Where(b => b.ReturnedDate == null)  // Только книги, которые еще не были возвращены
-                    .OrderBy(b => b.DueDate) // Сортировка по дате возврата
+                    .Where(b => b.ReturnedDate == null)  
+                    .OrderBy(b => b.DueDate) 
                     .ToList();
 
                 Console.WriteLine("\nBorrowed books (to be returned):");
